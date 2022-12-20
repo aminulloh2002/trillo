@@ -291,9 +291,17 @@
     cursor: pointer;
     transition: all .2s;
 
-    // &:hover {
-    //     color: var(--color-grey-dark-1);
-    // }
+    & span {
+        margin-left: 3px;
+        transition: margin-left .3s;
+    }
+
+    &:hover {
+        // color: var(--color-grey-dark-1);
+        span {
+            margin-left: 8px;
+        }
+    }
 
     &:focus {
         outline: none;
@@ -321,31 +329,32 @@
 
 ///////////////////////////////
 // Paragraph
-.paragraph:not(:last-of-type){
+.paragraph:not(:last-of-type) {
     margin-bottom: 2rem;
 }
+
 ///////////////////////////////
 // List
-.list{
+.list {
     list-style: none;
-    margin:3rem 0;
-    padding: 3rem;
+    margin: 3rem 0;
+    padding: 3rem 0;
     border-top: var(--line);
     border-bottom: var(--line);
 
     display: flex;
     flex-wrap: wrap;
 
-    &__item{
-        flex:0 0 50%;
+    &__item {
+        flex: 0 0 50%;
         margin-bottom: .7rem;
     }
 
-    &__item::before{
+    &__item::before {
         content: "";
         display: inline-block;
-        height: 2rem;
-        width: 2rem;
+        height: 1rem;
+        width: 1rem;
         margin-right: .7rem;
 
         // older browser
@@ -363,29 +372,93 @@
 
 ///////////////////////////////
 // Recommend
-.recommend{
+.recommend {
     font-size: 1.3rem;
     color: var(--color-grey-dark-3);
 
     display: flex;
     align-items: center;
 
-    &__count{
+    &__count {
         margin-right: auto;
     }
 
-    &__friends{
-    }
+    &__friends {}
 
-    &__photo{
+    &__photo {
         box-sizing: content-box;
         height: 4rem;
         width: 4rem;
         border-radius: 50%;
-        border: 3px solid #fff;;
+        border: 3px solid #fff;
+        ;
 
-        &:not(:last-child){
+        &:not(:last-child) {
             margin-right: -1.5rem;
         }
+    }
+}
+
+///////////////////////////////
+// Reviews
+
+.review {
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    overflow: hidden;
+
+    &__text {
+        margin-bottom: 2rem;
+        z-index: 2; // z-index only works if u set/define poition
+        position: relative;
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+    }
+
+    &__photo {
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        margin-right: 1.5rem;
+    }
+
+    &__user-box {
+        margin-right: auto;
+    }
+
+    &__user-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: .4rem;
+    }
+
+    &__user-date {
+        font-size: 1rem;
+        color: var(--color-grey-dark-3);
+    }
+
+    &__rating {
+        color: var(--color-primary);
+        font-size: 2.2rem;
+        // font-weight: 300;
+    }
+
+    &::before {
+        content: "\201c";
+        color: var(--color-grey-light-2);
+        font-size: 20rem;
+        position: absolute;
+        top: -2.75rem;
+        left: -1rem;
+        line-height: 1;
+        font-family: sans-serif;
+        z-index: 1;
     }
 }
